@@ -1,0 +1,23 @@
+Source:https://www.youtube.com/watch?v=Dorf8i6lCuk
+    Adding Routing 1:28:15
+    Adding Links & Navigation 1:45:07
+    CSS Modules 1:50:28
+    Outputting Lists 1:56:14
+    Adding More Components´2:02:04
+    Props Children 2:11:52
+    Adding a Form 2:20:31
+    Getting User Input & Handling Form Submission 2:29:30
+    Preparing the App for HTTP 2:39:15
+    Sending a Post Request 2:46:07
+    Navigating Programmatically 2:51:25
+    Getting Started with Fetching Data 2:55:07
+    useEffect 3:04:32
+    Introducing React Context´3:14:40
+    Context Logic & Different Ways of Updating State 3:25:43
+    Using Context in Components 3:31:37
+    More Context Usage 3:43:48
+    Summary 3:50:42
+
+Dossier pages contiendra les components correspondant aux pages de l'App
+Bonne pratique histoire de distinguer rapidement les components pages des autres
+Le dossier pages permet aussi de mieux configurer react-router plus easily => pratique 
