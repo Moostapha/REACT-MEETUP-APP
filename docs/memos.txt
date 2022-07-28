@@ -21,3 +21,4 @@ Source:https://www.youtube.com/watch?v=Dorf8i6lCuk
 Dossier pages contiendra les components correspondant aux pages de l'App
 Bonne pratique histoire de distinguer rapidement les components pages des autres
 Le dossier pages permet aussi de mieux configurer react-router plus easily => pratique 
+test
