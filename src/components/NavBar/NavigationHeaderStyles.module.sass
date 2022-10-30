@@ -1,0 +1,64 @@
+.header
+    background-color: white
+    border: 1px solid blue
+    border-radius: 5px
+    box-shadow:  1px 2px white
+    padding: 0px 10px
+    display: flex
+    justify-content: space-between
+    flex-direction: row
+    align-items: center
+    @media only screen and (max-width: 835px)
+        flex-direction: column
+        margin-top: 10px
+    .title
+        display: flex
+        align-items: center
+        h2, h3
+            margin: 0px
+            padding: 0px 5px
+        h2
+            color: #285fc0
+            @media only screen and (max-width: 470px)
+                font-size: 4vw
+        h3
+            @media only screen and (max-width: 470px)
+                font-size: 3vw
+    ul
+        display: flex
+        list-style:  none
+        padding: 0px
+        margin: 4px
+        @media only screen and (max-width: 353px)
+            flex-direction: column
+        li
+            cursor: pointer
+            transition: transform .4s
+            margin: 0.5rem
+            padding: 2px
+            &:hover
+                transform: scale(1.1)
+            @media only screen and (max-width: 478px)
+                margin: 0.5rem
+                padding: 0px
+            @media only screen and (max-width: 381px)
+                margin: 0.2rem
+                padding: 0px
+            a
+                text-decoration: none
+                color: #285fc0
+                // border: .5px solid #0a28ee
+                border-radius: 4px
+                padding: 2px
+                font-weight: bold
+                font-size: x-large
+                @media only screen and (max-width: 911px)  // bigger to smaller
+                    font-size: large
+                // @media only screen and (max-width: 485px)
+                //     font-size: medium
+                @media only screen and (max-width: 321px)
+                    font-size: smaller
+                &:hover
+                    background-color: #285fc0
+                    color: white
+                    font-weight: 600

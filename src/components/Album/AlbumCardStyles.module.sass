@@ -1,0 +1,75 @@
+// Pour sass module éviter noms des class avec - et use camelCase sinon erreur lors de use des class
+section
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    .card 
+        margin: 4vh
+        border-radius: 2vh
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px
+        transition: transform 0.4s
+        border: .5px groove #285fc0
+        cursor: pointer
+        // background-color: #285fc0
+        // width: 300px
+        width: auto
+        // small screen
+        @media only screen and (max-width: 370px)
+            width: 300px
+        &:hover
+            transform: scale(1.05)
+        .cardImg
+            border-radius: 2vh
+            height: 380px
+            width: 350px
+            // small screen
+            @media only screen and (max-width: 370px)
+                width: 296px
+        .cardBody
+            margin: 0.5vh
+        .cardTextBtn
+            background-color: white
+            padding: 1vh
+            border-radius: 2vh
+            display: flex
+            flex-direction: column
+            .cardText
+                height: 150px
+                width: 296px
+                // display: flex
+                // flex-direction: column
+                // justify-content: center
+            // conflit avec les h2 de NewAlbumFormStyles.module.sass => ajout de style précis 
+            h2
+                font-weight: 450
+                // font-size: 3vw
+                margin-top: 0vh
+                margin-bottom: 0.5vh
+                text-align: left
+                color: black
+            h3
+                font-weight: 450
+                margin: 0vh
+                font-size: larger
+            span
+                font-weight: bold
+            p
+                margin: 0px
+                // font-size: larger
+            .cardBtn
+                margin-top: 2vh
+                display: flex
+                justify-content: flex-end
+                button
+                    border-radius: 1vh
+                    cursor: pointer
+                    background-color: white
+                    color:#285fc0
+                    height: 40px
+                    margin: 4px 4px
+                    padding: 4px 10px
+                    font-weight: bolder
+                    &:hover
+                        background-color: #285fc4
+                        color: white
