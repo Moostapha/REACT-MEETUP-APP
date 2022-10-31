@@ -1,8 +1,8 @@
 # React Music App
-This project is a music app for fans of urban music wanting to share their bst albums from their favorite artits. 
+This project is a music app for urban music's fans wanting to share their best albums from their favorites artists. 
 
 # Technologies
-React Js - realtime database firebase - Sass
+React Js - Axios - Realtime Database Firebase - Sass
 
 # Features
 Home page with all albums
