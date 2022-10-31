@@ -5,9 +5,9 @@ This project is a music app for urban music's fans wanting to share their best a
 React Js - Axios - Realtime Database Firebase - Sass
 
 # Features
-Home page with all albums
-Page with a form to add new album
-Page with favorites
+- Home page with all albums
+- Page with a form to add new album
+- Page with favorites added from home page
 
 
 
