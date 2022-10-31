@@ -10,6 +10,19 @@ Page with a form to add new album
 Page with favorites
 
 
+
+
+
+
+https://user-images.githubusercontent.com/43280818/199000598-b59a091e-a1f9-4e00-a280-032dc131d8a6.mp4
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
