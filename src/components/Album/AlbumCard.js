@@ -2,10 +2,41 @@
 // map() sur chaque item dans component AlbumCardList
 
 // scoped module
-import styles from './AlbumCardStyles.module.sass'
+import styles from './AlbumCardStyles.module.sass';
+
+// context hooks establishing connexion between this component and the context
+import {useContext} from 'react';
+import FavoritesContext from '../../store/favorites-context';
 
 function AlbumCard(props) {
+    
+    // context changing favorites btn status
+    const favoritesCtx = useContext(FavoritesContext);
+    
+    // is album favorite? check true or false
+    const albumIsFavorite = favoritesCtx.itemIsFavorite(props.id)
+    
+    // function triggered by clicking on favorite btn
+    function toggleFavoriteBtn() {
+        if (albumIsFavorite) {
+            favoritesCtx.removeFavorite(props.id)
+            console.log('btn clicked removed from favorites', props.id)
+        } else {
+            favoritesCtx.addFavorite(
+                { // add album infos
+                    id : props.id,
+                    artiste : props.artiste,
+                    titre : props.titre,
+                    date : props.date,
+                    genre : props.genre,
+                    image : props.image,
+                }
+            )
+        };
+    }
+    
     console.log('PROPS ALBUMCARD COMPONENT', props)
+    
     return(
         
             <div className={styles.card}>
@@ -21,7 +52,9 @@ function AlbumCard(props) {
                         </div>
                         
                         <div className={styles.cardBtn}>
-                            <button>Add To Favorites</button>
+                            <button onClick={toggleFavoriteBtn}>
+                                {albumIsFavorite ? 'Remove from favorites' : 'To Favorites'}
+                            </button>
                         </div>
                     </div>
                 </div>

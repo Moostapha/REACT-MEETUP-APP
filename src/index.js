@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom/client';
 //  components
 import App from './App';
 
-// import fonction component de store afin de l'appliquer sur all components
+// import fonction component de store afin de l'appliquer sur all components impliqués par le changement de context
 import { FavoritesContextProvider } from './store/favorites-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
