@@ -16,7 +16,7 @@ function FavoritesPage() {
     let content;
     
     if (favoritesCtx.totalFavorites === 0) {
-        content = <p> Vous n'avez aucun album favori pour le moment</p>
+        content = <h3> Vous n'avez aucun album favori pour le moment</h3> 
     } else {
         content = <AlbumCardList albums={favoritesCtx.favorites}/>
     }

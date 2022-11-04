@@ -5,7 +5,16 @@ import style from './NavigationHeaderStyles.module.sass'
 import {Link} from 'react-router-dom'
 
 
+import {useContext} from 'react';
+import FavoritesContext from '../../store/favorites-context'
+
+
 function NavigationHeader() {
+    
+    // Connexion to favorites-context to display number of favorites in badge
+    const favoriteCtx = useContext(FavoritesContext);
+    
+    
     return(
         <header className={style.header}>
             
@@ -28,7 +37,12 @@ function NavigationHeader() {
                     <Link to={'/add-artist'}>New Artist</Link>
                 </li> */}
                 <li>
-                    <Link to={'/favorites'}>My Favorites</Link>
+                    <Link to={'/favorites'}>
+                        My Favorites
+                        <span className={style.badge}>
+                            {favoriteCtx.totalFavorites}
+                        </span>
+                    </Link>
                 </li>
             </ul>
             

@@ -1,7 +1,7 @@
 // import de axios
 import clientAxiosRequest from '../api/axiosConfig'
 
-// import de useState pour gérer affichagen(change ce qui est visible à l'écran selon conditions) + useEffect pour condition exécution requête axios
+// import de useState pour gérer affichage (change ce qui est visible à l'écran selon conditions) + useEffect pour condition exécution requête axios
 import { useState, useEffect } from 'react'
 
 // component
@@ -42,15 +42,15 @@ import AlbumCardList from '../components/Album/AlbumCardList';
 ];*/
 
 function AllAlbumsPage() {
-
+    
     // state affichage loading => état initial puis modif de cet état
     // useState => reload le component à chaque fois, donc all code dans la fonction est effectué à chaque fois
     const [isLoading, setIsLoading] = useState(true);
-
+    
     // state affichage albums data de firebase => état initial puis modif de cet état
     const [loadedAlbums, setLoadedAlbums] = useState([]);
-
-
+    
+    
     // Requête axios effectuée once pour éviter infinite loops dans useEffect()
     useEffect( () => {
         
@@ -99,6 +99,13 @@ function AllAlbumsPage() {
             </div>
         )
     }
+    
+    
+    // Function post axios to favorites in firebase
+    
+    
+    
+    
     
     return(
         <section>
