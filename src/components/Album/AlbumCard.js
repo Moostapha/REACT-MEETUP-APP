@@ -10,6 +10,7 @@ import FavoritesContext from '../../store/favorites-context';
 
 function AlbumCard(props) {
     
+    console.log(props.id)
     // context changing favorites btn status
     const favoritesCtx = useContext(FavoritesContext);
     
@@ -23,7 +24,7 @@ function AlbumCard(props) {
             console.log('btn clicked removed from favorites', props.id)
         } else {
             favoritesCtx.addFavorite(
-                { // add album infos
+                { 
                     id : props.id,
                     artiste : props.artiste,
                     titre : props.titre,

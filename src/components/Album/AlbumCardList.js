@@ -9,7 +9,7 @@ function AlbumCardList(props) {
         props.albums.map(
             album => 
             <AlbumCard 
-                key ={album.id}
+                key = {album.id}
                 id = {album.id}
                 artiste = {album.artiste}
                 titre = {album.titre}

@@ -61,7 +61,6 @@ function AllAlbumsPage() {
         .then( response => {
             
             console.log('ALBUMS DATAS FROM FIREBASE', response.data);
-            // console.log('ALBUMS DATAS FROM FIREBASE', typeof(response.data));
             
             // traitement datas objet de firebase, 
             const albums = []; // helper
@@ -99,12 +98,6 @@ function AllAlbumsPage() {
             </div>
         )
     }
-    
-    
-    // Function post axios to favorites in firebase
-    
-    
-    
     
     
     return(

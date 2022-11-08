@@ -15,23 +15,23 @@ function NewAlbumForm(props) {
     const artisteInput = useRef();
     const genreInput = useRef();
     const dateInput = useRef();
-
+    
     // history mode pour retourner vers AllAlbums page
     const navigate = useNavigate();
-
+    
     // fonction bouton Add Album
     function submitHandler(event){
-    
+        
         event.preventDefault();  // correction comportement par défaut submit
         console.log('clicked');
-    
+        
         // saisie valeurs des inputs (entrées par le user)
         const enteredImg = imgInput.current.value;
         const enteredTitre = titreInput.current.value;
         const enteredArtiste = artisteInput.current.value;
         const enteredGenre = genreInput.current.value;
         const enteredDate = dateInput.current.value;
-    
+        
         // Regroupement des saisies dans objet albumData qui seront send via axios à la bd
         const albumData = {
             image: enteredImg ,
@@ -40,16 +40,16 @@ function NewAlbumForm(props) {
             genre:  enteredGenre,
             date: enteredDate ,
         };
-    
+        
         console.log('SAISIES DU FORMULAIRE:', albumData);
-    
+        
         // passage infos albumData vers page AllAlbum (component parent) via props valeur fonction
         // ajout de cette props au niveau du component <NewAlbumForm/>
         props.onAddAlbum(albumData);
-    
+        
         // Navigation programmatique retour sur page AllAlbums (Accueil)
         navigate('/')
-    
+        
     }
     
     return(

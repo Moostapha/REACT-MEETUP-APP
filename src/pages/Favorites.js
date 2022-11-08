@@ -6,6 +6,9 @@ import FavoritesContext from '../store/favorites-context';
 // Recycling AlbumCardList for displayin favorites added
 import AlbumCardList from '../components/Album/AlbumCardList';
 
+// axios to GET favoris from firebase
+// import clientAxiosRequest from "../api/axiosConfig";
+
 function FavoritesPage() {
     
     // Connection of this component to the context
@@ -18,6 +21,7 @@ function FavoritesPage() {
     if (favoritesCtx.totalFavorites === 0) {
         content = <h3> Vous n'avez aucun album favori pour le moment</h3> 
     } else {
+        
         content = <AlbumCardList albums={favoritesCtx.favorites}/>
     }
     
