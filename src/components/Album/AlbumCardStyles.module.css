@@ -1,0 +1,84 @@
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+section .card {
+  margin: 4vh;
+  border-radius: 2vh;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: transform 0.4s;
+  border: 0.5px groove #285fc0;
+  cursor: pointer;
+  width: auto;
+}
+@media only screen and (max-width: 370px) {
+  section .card {
+    width: 300px;
+  }
+}
+section .card:hover {
+  transform: scale(1.05);
+}
+section .card .cardImg {
+  border-radius: 2vh;
+  height: 380px;
+  width: 350px;
+}
+@media only screen and (max-width: 370px) {
+  section .card .cardImg {
+    width: 296px;
+  }
+}
+section .card .cardBody {
+  margin: 0.5vh;
+}
+section .card .cardTextBtn {
+  background-color: white;
+  padding: 1vh;
+  border-radius: 2vh;
+  display: flex;
+  flex-direction: column;
+}
+section .card .cardTextBtn .cardText {
+  height: 150px;
+  width: 296px;
+}
+section .card .cardTextBtn h2 {
+  font-weight: 450;
+  margin-top: 0vh;
+  margin-bottom: 0.5vh;
+  text-align: left;
+  color: black;
+}
+section .card .cardTextBtn h3 {
+  font-weight: 450;
+  margin: 0vh;
+  font-size: larger;
+}
+section .card .cardTextBtn span {
+  font-weight: bold;
+}
+section .card .cardTextBtn p {
+  margin: 0px;
+}
+section .card .cardTextBtn .cardBtn {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: flex-end;
+}
+section .card .cardTextBtn .cardBtn button {
+  border-radius: 1vh;
+  cursor: pointer;
+  background-color: white;
+  color: #285fc0;
+  height: 40px;
+  margin: 4px 4px;
+  padding: 4px 10px;
+  font-weight: bolder;
+}
+section .card .cardTextBtn .cardBtn button:hover {
+  background-color: #285fc4;
+  color: white;
+}/*# sourceMappingURL=AlbumCardStyles.module.css.map */

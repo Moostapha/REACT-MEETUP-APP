@@ -1,0 +1,105 @@
+.header {
+  background-color: white;
+  border: 1px solid #285fc0;
+  border-radius: 10px;
+  box-shadow: 1.5px 2px #020a1a;
+  margin-top: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+@media only screen and (max-width: 835px) {
+  .header {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+}
+.header .title {
+  display: flex;
+  align-items: center;
+}
+.header .title h2, .header .title h3 {
+  margin: 0px;
+  padding: 0px 5px;
+}
+.header .title h2 {
+  color: #285fc0;
+}
+@media only screen and (max-width: 470px) {
+  .header .title h2 {
+    font-size: 4vw;
+  }
+}
+@media only screen and (max-width: 470px) {
+  .header .title h3 {
+    font-size: 3vw;
+  }
+}
+.header ul {
+  display: flex;
+  list-style: none;
+  padding: 0px;
+  margin: 4px;
+}
+@media only screen and (max-width: 353px) {
+  .header ul {
+    flex-direction: column;
+  }
+}
+.header ul li {
+  cursor: pointer;
+  transition: transform 0.4s;
+  margin: 0.5rem;
+  padding: 2px;
+}
+.header ul li:hover {
+  transform: scale(1.1);
+}
+@media only screen and (max-width: 478px) {
+  .header ul li {
+    margin: 0.5rem;
+    padding: 0px;
+  }
+}
+@media only screen and (max-width: 381px) {
+  .header ul li {
+    margin: 0.2rem;
+    padding: 0px;
+  }
+}
+.header ul li a {
+  text-decoration: none;
+  color: #285fc0;
+  border-radius: 4px;
+  padding: 2px;
+  font-weight: bold;
+  font-size: x-large;
+}
+@media only screen and (max-width: 911px) {
+  .header ul li a {
+    font-size: large;
+  }
+}
+@media only screen and (max-width: 321px) {
+  .header ul li a {
+    font-size: smaller;
+  }
+}
+.header ul li a:hover {
+  background-color: #285fc0;
+  color: white;
+  font-weight: 600;
+}
+.header ul li .badge {
+  background-color: #3394e7;
+  color: white;
+  border-radius: 15px;
+  padding: 0 1rem;
+  margin-left: 0.5rem;
+}/*# sourceMappingURL=NavigationHeaderStyles.module.css.map */
