@@ -6,22 +6,22 @@ import FavoritesContext from '../store/favorites-context';
 // Recycling AlbumCardList for displayin favorites added
 import AlbumCardList from '../components/Album/AlbumCardList';
 
-// axios to GET favoris from firebase
-// import clientAxiosRequest from "../api/axiosConfig";
-
 function FavoritesPage() {
     
     // Connection of this component to the context
     const favoritesCtx = useContext(FavoritesContext) ;
     
-    // displayin message if no favorites added
+    // get all user favoris from db
+    // favoritesCtx.getFavorites();
+    
     // helper
     let content;
     
+    // displayin message if no favorites added
     if (favoritesCtx.totalFavorites === 0) {
-        content = <h3> Vous n'avez aucun album favori pour le moment</h3> 
-    } else {
-        
+        content = <h3>Vous n'avez aucun album favori pour le moment</h3> 
+    }
+    else {
         content = <AlbumCardList albums={favoritesCtx.favorites}/>
     }
     

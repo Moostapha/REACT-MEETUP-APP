@@ -44,6 +44,7 @@ import AlbumCardList from '../components/Album/AlbumCardList';
 function AllAlbumsPage() {
     
     // state affichage loading => état initial puis modif de cet état
+    
     // useState => reload le component à chaque fois, donc all code dans la fonction est effectué à chaque fois
     const [isLoading, setIsLoading] = useState(true);
     
@@ -58,36 +59,36 @@ function AllAlbumsPage() {
         
         // requête GET to firebase to load datas album on this page
         clientAxiosRequest.get('albums.json')
-        .then( response => {
-            
-            console.log('ALBUMS DATAS FROM FIREBASE', response.data);
-            
-            // traitement datas objet de firebase, 
-            const albums = []; // helper
-            
-            for (const key in response.data) {
+            .then( response => {
                 
-                // restructuration avec id array en objet
-                const album = {
-                    id: key,
-                    ...response.data[key],
+                console.log('ALBUMS DATAS FROM FIREBASE', response.data);
+                
+                // traitement datas objet de firebase,
+                
+                // helper tableau vide pour y stocker les datas
+                const albums = []; 
+                
+                // Boucle sur les datas Get de FB 
+                for (const key in response.data) {
+                    
+                    // restructuration avec id array en objet
+                    const album = {
+                        id: key,
+                        ...response.data[key],
+                    }
+                    
+                    // album stocké dans tableau helper vide albums
+                    albums.push(album)
+                    // console.log('ALBUMS LIST DATAS FROM FIREBASE TRANSFORMED AND USABLE IN MAP() FROM CARDLIST COMPONENT', albums);
+                    
+                    // modif du state
+                    setLoadedAlbums(albums);
+                    setIsLoading(false)
                 }
-                
-                // console.log('ALBUMS DATAS FROM FIREBASE TRANSFORMED', album)
-                // console.log(typeof(album))
-                
-                albums.push(album)
-                // console.log('ALBUMS LIST DATAS FROM FIREBASE TRANSFORMED AND USABLE IN MAP() FROM CARDLIST COMPONENT', albums);
-                
-                // modif du state
-                setLoadedAlbums(albums);
-                setIsLoading(false)
-            }
-            
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }, []);
     
     // rendu JSX conditionnel si loading

@@ -1,5 +1,5 @@
-import { createContext, useState } from "react";
-import clientAxiosRequest from "../api/axiosConfig";
+import { createContext, useState } from "react";        // react hooks
+import clientAxiosRequest from "../api/axiosConfig";   //  axios request configs
 
 const FavoritesContext = createContext({
     // initial context value
@@ -8,6 +8,7 @@ const FavoritesContext = createContext({
     addFavorite : (favoriteAlbum) => {},
     removeFavorite : (albumId) => {},
     itemIsFavorite : (albumId) => {},
+    // getFavorites: () => {}
 });
 
 
@@ -19,40 +20,116 @@ export function FavoritesContextProvider(props) {
     
     // Functions changing state
     
+    // function getFavoritesFromDb() {
+        
+    //     // axios client request to db
+    //     clientAxiosRequest.get('favoris.json')
+    //     .then(response => {
+            
+    //         // data response
+    //         console.log('FAVORIS FROM DB', response.data);
+            
+    //         // traitement datas objet de firebase,
+    //         // helper tableau vide pour y stocker les datas
+    //         const albums = []; 
+            
+    //         // Boucle sur les datas Get de FB 
+    //         for (const key in response.data) {
+                
+    //             // restructuration avec id array en objet
+    //             const album = {
+    //                 id: key,
+    //                 ...response.data[key],
+    //             }
+                
+    //             // album stocké dans tableau helper vide albums
+    //             albums.push(album)
+    //         }   
+    //     })
+    //     .catch((error) => {
+    //         console.log('ERROR !!!',error)
+    //     })
+            
+    //         // setUserFavorites( (previousUserFavorites) => {
+    //         //     return previousUserFavorites.concat(favoriteAlbum)
+    //         // })
+    // }
+    
     function addFavoriteHandler(favoriteAlbum) {
+        
         // eslint-disable-next-line no-restricted-globals
         if (confirm(('Ajouter cet album à vos favoris ?')))
         
-        // axios post to firebase
+        // axios POST to firebase
         clientAxiosRequest.post('favoris.json', favoriteAlbum)
-        .then(response => {
-            console.log('DATA ALBUM TO FIREBASE', response);
-            console.log('KEYS: ', response.data.name);
-            alert('Album rajouté dans vos favoris avec succés !!!')
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+            .then(response => {
+                console.log('DATA ALBUM TO FIREBASE', response);
+                // clé primaire de firebase pour data created
+                console.log('KEYS: ', response.data.name);
+                alert('Album rajouté dans vos favoris avec succés !!!');
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        
+        // set items in localStorage
         
         setUserFavorites( (previousUserFavorites) => {
             return previousUserFavorites.concat(favoriteAlbum)
-        })
+        });
     };
     
+    
     function removeFavoriteHandler(albumId) {
+        
         // eslint-disable-next-line no-restricted-globals
         if (confirm(('Voulez-vous vraiment supprimé cet album de vos favoris ?')))
         
-        // axios delete request to firebase
-        // 'favoris/' + albumId +'.json'
-        clientAxiosRequest.delete('favoris/' + albumId + '.json', 
-            {params: {id:albumId}} 
-            
-        )
+        // récupération primary key to delete à cause de structure de data de la response.data
+        clientAxiosRequest.get('favoris.json')
         .then(response => {
-            // const primaryKeyDb = response.data.name
-            console.log('DATA FAVORITE ALBUM DELETED FROM FIREBASE', response);
-            alert('Album supprimé de vos favoris avec succés !!!')
+            
+            // helper pour avoir primaryKey en dehors du scope de la boucle for each pour l'utiliser de way dynamique dans axios.delete
+            let primaryKey = '';
+            
+            if (response.data === []) {
+                return console.log('no datas')
+            } else {// extraction de la clé généré par FB à delete
+                
+                // Transformation de response.data en objet itérable avec entries indice 0 pour db ID et 1 pour infos album favoris
+                const favDatasEntries = Object.entries(response.data);
+                
+                // Boucle sur les datas GET de favoris puis filter primaryKey matching albumId
+                favDatasEntries.forEach(element => {
+                    
+                    // lecture de primaryKey avec sa valeur associée (album en favoris)
+                    console.log('1) BOUCLE FOR EACH SUR ENTRIES', element[0]);
+                    console.log('BOUCLE FOR EACH SUR ENTRIES' , element[1]);
+                    
+                    // filtre albumId et primaryKey
+                    const filteredID = favDatasEntries.filter((item) => {
+                        
+                        // item[0] => primaryId et item[1] => album favoris et ses infos
+                        return item[1].id === albumId && item[0]
+                    });
+                    
+                    // assignation de primaryKey
+                    primaryKey = filteredID[0][0]
+                })
+            }
+            
+            // lecture de primaryKey filtré selon albumId
+            console.log('2) FB AUTO KEYS TO DELETE', primaryKey);
+            
+            // axios delete request with autogenerated key primaryKey from FB
+            clientAxiosRequest.delete(`favoris/${primaryKey}.json` )
+            .then(response => {
+                console.log('3) DATA FAVORITE ALBUM DELETED FROM FIREBASE', response);
+                alert('Album supprimé de vos favoris avec succés !!!')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
         })
         .catch((error) => {
             console.log(error)
@@ -66,6 +143,7 @@ export function FavoritesContextProvider(props) {
         })
     };
     
+    
     function itemIsFavoriteHandler(albumId) {
         // some() checks if one of the item matches the condition
         return userFavorites.some(
@@ -78,6 +156,7 @@ export function FavoritesContextProvider(props) {
         favorites: userFavorites,
         totalFavorites: userFavorites.length,
         // functions pointers exposed to all components
+        // getFavorites: getFavoritesFromDb,
         addFavorite: addFavoriteHandler,
         removeFavorite: removeFavoriteHandler,
         itemIsFavorite: itemIsFavoriteHandler
