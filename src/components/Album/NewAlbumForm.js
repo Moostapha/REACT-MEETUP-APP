@@ -1,5 +1,5 @@
 // scoped module style
-import styles from './NewAlbumFormStyles.module.sass'
+import styles from '../../styles/ALbumForm/NewAlbumFormStyles.module.sass'
 
 //useRef()
 import {useRef} from 'react'

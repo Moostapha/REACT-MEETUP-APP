@@ -1,6 +1,6 @@
 // style sass
 // import './styles/App.sass';
-import style from './styles/App.module.sass'
+import style from './styles/App/App.module.sass'
 
 // import des éléments permettant navigation 
 // router

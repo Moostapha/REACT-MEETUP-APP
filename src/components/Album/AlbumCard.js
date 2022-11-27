@@ -2,7 +2,7 @@
 // map() sur chaque item dans component AlbumCardList
 
 // scoped module
-import styles from './AlbumCardStyles.module.sass';
+import styles from '../../styles/AlbumCard/AlbumCardStyles.module.sass';
 
 // context hooks establishing connexion between this component and the context
 import {useContext} from 'react';

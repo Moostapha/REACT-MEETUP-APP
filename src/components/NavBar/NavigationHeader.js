@@ -1,5 +1,5 @@
 // import './NavigationHeaderStyles.sass'
-import style from './NavigationHeaderStyles.module.sass'
+import style from '../../styles/NavigationHeader/NavigationHeaderStyles.module.sass'
 
 // navigation
 import {Link} from 'react-router-dom'
