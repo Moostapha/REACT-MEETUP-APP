@@ -12,7 +12,17 @@ React Js - Axios - Realtime Database Firebase - Sass
 
 https://user-images.githubusercontent.com/43280818/199000598-b59a091e-a1f9-4e00-a280-032dc131d8a6.mp4
 
+# :point_right: small device
 
+<img width="243" alt="musicAppSmall" src="https://github.com/Moostapha/REACT-REDUX-APP/assets/43280818/f91ad3b4-b926-4432-9e4a-7fc5d860834f">
+
+# :point_right: medium device
+
+<img width="336" alt="musicAppMedium" src="https://github.com/Moostapha/REACT-REDUX-APP/assets/43280818/66ae4e72-245f-423c-a440-5d4fcb375be1">
+
+# :point_right: large device
+
+<img width="753" alt="musicAppLarge" src="https://github.com/Moostapha/REACT-REDUX-APP/assets/43280818/f5ea9b8b-b184-4380-9452-27e36cc71bb5">
 
 # :point_right: Getting Started with Create React App
 
